@@ -1,0 +1,12 @@
+{
+  "name": "chatty_app",
+  "version": "1.0.0",
+  "description": "<h1>Week 5: Chatty App</h1> <h4><a id='#toc'>ToC</h4> <ul> </ul> <hr> <h2>Description</h2> <p>   Your application will be comprised of 3 child 'components' (<code>Message</code>, <code>MessageList</code>,    and <code>ChatBar</code>), which interact together through one main App component.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
