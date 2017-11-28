@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 class NavBar extends Component {
   render() {
     return (
-      <navbar className='navbar'>
-        <a href='/' className='navbar-bran'>Chatty</a>
-      </navbar>
+      <footer className="chatbar">
+        <input className="chatbar-username" placeholder="Your Name (Optional)" />
+        <input className="chatbar-message" placeholder="Type a message and hit ENTER" /> 
+      </footer>
     );
   }
 }
