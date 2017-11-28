@@ -18,7 +18,7 @@
 (what it should look like)</h5>
 <img src='https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-app-01-final.png'>
 <hr>
-<h2><a href="react_reading"><code>React</code> Readings</h2>
+<h2><a id="#react_reading"><code>React</code> Readings</h2>
 <ul>
   <li><a href="https://github.com/jensen/react-notes">Class lecture notes (W5d2)</a></li>
   <li><a href="https://www.npmjs.com/package/react-dom">Components</a></li>
