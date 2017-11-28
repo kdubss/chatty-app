@@ -1,6 +1,7 @@
 <h1>Week 5: Chatty App</h1>
 <h4><a id='#toc'>ToC</h4>
 <ul>
+  <li><a href="#react_reading"<code>React readings</code></a></li>
 </ul>
 <hr>
 <h2>Description</h2>
@@ -13,7 +14,11 @@
   Instead of AJAX (over HTTP), your Chatty application will implement the client-server communication using an alternative protocol called WebSocket.
 </p>
 <hr>
-<h5><i><code>Chatty App</code</i> finished product 
+<h5><i><code>Chatty App</code></i> finished product 
 (what it should look like)</h5>
 <img src='https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-app-01-final.png'>
 <hr>
+<h2><a href="react_reading"><code>React</code> Readings</h2>
+<ul>
+  <li><a href="https://www.npmjs.com/package/react-dom">Components</a></li>
+</ul>
