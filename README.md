@@ -3,6 +3,16 @@
 <ul>
 </ul>
 <hr>
+<h2>Description</h2>
+<p>
+  Your application will be comprised of 3 child 'components' (<code>Message</code>, <code>MessageList</code>, 
+  and <code>ChatBar</code>), which interact together through one main App component.
+
+  When a user creates a new message it will be sent to a simple server that broadcasts the message to all other connected users.
+
+  Instead of AJAX (over HTTP), your Chatty application will implement the client-server communication using an alternative protocol called WebSocket.
+</p>
+<hr>
 <h5><i><code>Chatty App</code</i> finished product 
 (what it should look like)</h5>
 <img src='https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-app-01-final.png'>
