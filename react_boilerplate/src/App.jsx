@@ -1,31 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import home from '../styles/home.scss';
 
-class NavBar extends Component{
-  render(){
-    return (<nav className="navbar">
-    <a href="/" className="navbar-brand">Chatty</a>
-  </nav>);
-  }
-}
+import NavBar from './Navbar.jsx';
+import Message from './Message.jsx';
+import MessageList from './MessageList.jsx';
+import ChatBar from './ChatBar.jsx';
+
 class App extends Component {
   render() {
-    return (<div>
-        <NavBar/>
-    <main className="messages">
-      <div className="message">
-        <span className="message-username">Anonymous1</span>
-        <span className="message-content">I won't be impressed with technology until I can download food.</span>
+    return (
+      <div>
+        <NavBar />
+        <MessageList />
+        <ChatBar />
       </div>
-      <div className="message system">
-        Anonymous1 changed their name to nomnom.
-      </div>
-    </main>
-    <footer className="chatbar">
-      <input className="chatbar-username" placeholder="Your Name (Optional)" />
-      <input className="chatbar-message" placeholder="Type a message and hit ENTER" /> 
-    </footer>
-
-    </div>);
+    );
   }
 }
 
