@@ -20,6 +20,16 @@
 <hr>
 <h2><a id="#react_reading"><code>React</code> Readings & Assignments</h2>
 <ul>
+  <li><a href="https://web-compass.lighthouselabs.ca/days/w5d3/activities/373">Creating a <code>websocket</code> server</a>
+    <ul>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications">Web Socket Tutorial</a></li>
+      <li><a href="https://github.com/websockets/ws">Github page</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">MDN docs</a></li>
+      <li><a href="https://www.npmjs.com/package/ws">NPM <code>ws</code> docs</a></li>
+      <li><a href="https://gist.github.com/donburks/5a6dfebc8aa22ba68841620f11dcadcc">Code from todays lecture (w5d3)</a></li>
+    </ul>
+  </li>
+  <li><a href="https://web-compass.lighthouselabs.ca/days/w5d3/activities/372">Web Sockets</a></li>
   <li><a href="https://reactjs.org/docs/lists-and-keys.html">Lists And Keys</a></li>
   <li><a href="https://web-compass.lighthouselabs.ca/days/w5d2/activities/368">Data Flow in <code>Chatty</code></a></li>
   <li><a href="https://web-compass.lighthouselabs.ca/days/w5d2/activities/367">
