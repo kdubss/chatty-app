@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: {name: "Bob"}, // optional. if currentUser is not defined, it means the user is Anonymous
+      currentUser: {name: "Bob"}, 
       messages: [
         {
           username: "Bob",
@@ -24,9 +24,9 @@ class App extends Component {
         }
       ]
     }
+    this.newChatMessage = this.newChatMessage.bind(this);
   }
 
-  // in App.jsx
   componentDidMount() {
     console.log("componentDidMount <App />");
     setTimeout(() => {
@@ -38,8 +38,15 @@ class App extends Component {
       
       // Update the state of the app component.
       // Calling setState will trigger a call to render() in App and all child components.
-      this.setState({messages: messages})
     }, 3000);
+  }
+
+
+  newChatMessage(content) {
+    const id = this.state.messages[this.state.messages.length - 1].id + 1
+    const newMessage = {id: id, username: "Kang", content: content};
+    const messages = this.state.messages.concat(newMessage)
+    this.setState({messages: messages})
   }
 
   render() {
@@ -48,7 +55,8 @@ class App extends Component {
       <div>
         <NavBar />
         <MessageList messages={ this.state.messages }/>
-        <ChatBar currentUser={ this.state.currentUser } />
+        <ChatBar currentUser={ this.state.currentUser } 
+          newChatMessage={this.newChatMessage} />
       </div>
     );
   }
