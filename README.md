@@ -20,6 +20,7 @@
 <hr>
 <h2><a id="#react_reading"><code>React</code> Readings & Assignments</h2>
 <ul>
+  <li><a href="https://reactjs.org/docs/lists-and-keys.html">Lists And Keys</a></li>
   <li><a href="https://web-compass.lighthouselabs.ca/days/w5d2/activities/368">Data Flow in <code>Chatty</code></a></li>
   <li><a href="https://web-compass.lighthouselabs.ca/days/w5d2/activities/367">
     Component States and Props</a></li>
