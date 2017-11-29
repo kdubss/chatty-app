@@ -8,19 +8,20 @@ class MessageList extends Component {
   }
   render() {
     const messages = this.props.messages;
-    //console.log(messages);
-    const messageObj = messages.map((message, index) => {
-      return <Message key={message.id} username={message.username} 
-        content={message.content} 
-      />
-    });
+    const messageObj = messages;
+    // console.log(messages);
+    // return <Message username={messages.username} content={message.username} />
+    // const messageObj = messages.map((message, index) => {
+    //   return <Message key={message.id} username={message.username} 
+    //     content={message.content} 
+    //   />
 
     // Array of message objects (w/ username & content
     const messageList = this.props.messages;
 
     return (  
       <main className="messages">
-         { messageObj }
+         <Message username={messageObj.username} content={messageObj.content} />
         <div className="message system"></div>
       </main>
     );
