@@ -10,19 +10,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: {name: "Bob"}, // optional. if currentUser is not defined, it means the user is Anonymous
-      messages: [
-        {
-          username: "Bob",
-          content: "Has anyone seen my marbles?",
-          id: '1'
-        },
-        {
-          username: "Anonymous",
-          content: "No, I think you lost them. You lost your marbles Bob. You lost them for good.",
-          id: '2'
-        }
-      ]
+      currentUser: {name: "Bob"},
+      messages: []
+      // currentUser: {name: "Bob"}, // optional. if currentUser is not defined, it means the user is Anonymous
+      // messages: ["This is a test"
+        // {
+          // username: "Bob",
+          // content: "Has anyone seen my marbles?",
+          // id: '1'
+        // }
+        // {
+        //   username: "Anonymous",
+        //   content: "No, I think you lost them. You lost your marbles Bob. You lost them for good.",
+        //   id: '2'
+        // }
+      // ]
     }
     this.newChatMessage = this.newChatMessage.bind(this);
   }
@@ -31,18 +33,19 @@ class App extends Component {
     this.socket = new WebSocket("ws://localhost:3001");
 
     this.socket.addEventListener('message', (msg) => {
-      this.setState({messages: this.state.messages.concat(msg.data)});
+      this.setState({messages: this.state.messages.concat(JSON.stringify(msg.data))});
     });
   }
 
-
   newChatMessage(content) {
-    console.log("we are able to receive the content ",content);
-    const id = this.state.messages[this.state.messages.length - 1].id + 1
-    console.log('id',id);
-    const newMessage = {id: id, username: "Kang", content: content};
-    const messages = this.state.messages.concat(newMessage)
-    this.setState({messages: messages})
+    // const id = this.state.messages[this.state.messages.length - 1].id + 1;
+    const messages = this.state.messages;
+    const newMessage = {
+      username: this.state.currentUser.name,
+      content: content
+    };
+    this.setState({messages: newMessage});
+    this.socket.send(JSON.stringify(newMessage));
   }
 
   render() {
