@@ -11,26 +11,12 @@ class ChatBar extends Component {
     this.onEnterKey = this.onEnterKey.bind(this);
     this.onNewContent = this.onNewContent.bind(this);
     this.handleUserNameChange = this.handleUserNameChange.bind(this);
-    this.handleUserNameSubmit = this.handleUserNameSubmit.bind(this);
     this.userNameChange = this.userNameChange.bind(this);
   }
 
   handleUserNameChange(event) {
     this.setState({
       username: event.target.value
-    });
-  }
-
-  handleUserNameSubmit(event) {
-    let newUserName = this.state.username;
-    if (event.key === "Enter") {
-      alert("New User Name: ", newUserName);
-    }
-  }
-
-  onNewContent(event) {
-    this.setState({
-      content: event.target.value
     });
   }
 
@@ -42,6 +28,12 @@ class ChatBar extends Component {
       };
       this.props.newChatMessage(newMessage);
     }
+  }
+
+  onNewContent(event) {
+    this.setState({
+      content: event.target.value
+    });
   }
 
   onEnterKey(event) {
