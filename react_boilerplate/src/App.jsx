@@ -33,18 +33,35 @@ class App extends Component {
     this.socket = new WebSocket("ws://localhost:3001");
 
     this.socket.addEventListener('message', (msg) => {
-      this.setState({messages: this.state.messages.concat(JSON.stringify(msg.data))});
+      this.setState({messages: this.state.messages.concat(JSON.parse(msg.data))});
     });
   }
 
   newChatMessage(content) {
-    // const id = this.state.messages[this.state.messages.length - 1].id + 1;
-    const messages = this.state.messages;
-    const newMessage = {
-      username: this.state.currentUser.name,
-      content: content
-    };
-    this.setState({messages: newMessage});
+
+    console.log("content received from client:",content);
+    console.log("rohit" +content.type);
+    if(content.type==="Notification"){
+      
+      var newMessage = {
+        content: this.state.currentUser.name +  ' has changed its name to '+content.username
+      }
+
+      this.setState({
+        currentUser: {
+          name: content.username
+        }
+      });
+    } else if (content.type==="NewMessage"){
+      var newMessage = {
+        username: content.username,
+        content: content.content
+      };
+    }
+    // const newMessage = {
+    //   username: this.state.currentUser.name,
+    //   content: content
+    // };
     this.socket.send(JSON.stringify(newMessage));
   }
 
