@@ -30,9 +30,7 @@ wss.on('connection', function connection(ws) {
 
   ws.on('message', function incoming(message) {
     const uuidv4 = require("uuid/v4");
-    console.log("message obj: ", message);
-    console.log("message user: ", message.username);
-    console.log("message content: ", message.content);
+    
     let returnedMessage = JSON.parse(message)
     returnedMessage = {
       id: uuidv4(),
