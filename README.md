@@ -20,6 +20,8 @@
 <hr>
 <h2><a id="#react_reading"><code>React</code> Readings & Assignments</h2>
 <ul>
+  <li><a href="https://web-compass.lighthouselabs.ca/days/w5d4/activities/379">Displaying Users Online (Assignment 2 - w5d4)</a></li>
+  <li><a href="https://web-compass.lighthouselabs.ca/days/w5d4/activities/378">Notifications (Assignment 1 - w5d4)</a></li>
   <li><a href="https://web-compass.lighthouselabs.ca/days/w5d3/activities/373">Creating a <code>websocket</code> server</a>
     <ul>
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications">Web Socket Tutorial</a></li>
