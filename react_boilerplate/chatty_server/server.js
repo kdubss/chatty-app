@@ -25,7 +25,7 @@ let numberOfClients = wss.clients.size + ' user(s) online';
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
     if (client.readyState === WebSocket.OPEN) {
-      client.send(numberOfClients);
+      client.send(JSON.stringify(data));
     }
   });
 };
