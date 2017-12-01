@@ -56,12 +56,12 @@ wss.on('connection', function connection(ws) {
       content: returnedMessage.content
     };
     wss.broadcast(returnedMessage);
-    
-    console.log("received: ", returnedMessage);
 
   });
 
   // Set up a callback for when a client closes the socket. This usually means they closed their browser.
-  ws.on('close', () => console.log('Client disconnected. ' + wss.clients.size + ' user(s) online'));
+  ws.on('close', () => {
+    broadcastClientsCount();
+  });
 
 })
