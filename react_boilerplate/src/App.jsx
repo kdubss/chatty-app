@@ -11,7 +11,8 @@ class App extends Component {
     super(props);
     this.state = {
       currentUser: {name: "Bob"},
-      messages: []
+      messages: [], 
+      userCount: 0
     }
     this.newChatMessage = this.newChatMessage.bind(this);
   }
@@ -24,8 +25,12 @@ class App extends Component {
       if (messageIncoming.type === "NewMessage") {
         this.setState({messages: this.state.messages.concat(messageIncoming)});
       } else if (messageIncoming.type === "user_count") {
-        console.log("New user!");
+        // console.log("user(s) online!");
+        this.setState({
+          userCount: messageIncoming.count
+        });
       }
+      console.log("Current clients connected: ", this.state.userCount);
     });
   }
 
@@ -53,9 +58,9 @@ class App extends Component {
     console.log("Rendering <App/>");
     return (
       <div>
-        <NavBar />
-        <MessageList messages={ this.state.messages }/>
-        <ChatBar currentUser={ this.state.currentUser } 
+        <NavBar clientCount={this.state.userCount} />
+        <MessageList messages={this.state.messages} />
+        <ChatBar currentUser={this.state.currentUser} 
           newChatMessage={this.newChatMessage} />
       </div>
     );
