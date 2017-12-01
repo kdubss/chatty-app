@@ -17,20 +17,30 @@ const server = express()
   .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
 
 // Create the WebSockets server
-const wss = new SocketServer({ server })
+const wss = new SocketServer({ server })// www.clients.size;
 
-// Set up a callback that will run when a client connects to the server
-// When a client connects they are assigned a socket, represented by
-// the ws parameter in the callback.
+let numberOfClients = wss.clients.size + ' user(s) online';
+
+// Broadcast to all:
+wss.broadcast = function broadcast(data) {
+  wss.clients.forEach(function each(client) {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(numberOfClients);
+    }
+  });
+};
+
 wss.on('connection', function connection(ws) {
 
   console.log("Client connected!");
-
   clients.push(ws);
+  console.log("\nClient ws connected: ", clients);
+  console.log("\nClients array length: ", numberOfClients);
+
+  console.log("\n" + clients.length + " user(s) online");
 
   ws.on('message', function incoming(message) {
     const uuidv4 = require("uuid/v4");
-    
     let returnedMessage = JSON.parse(message)
     returnedMessage = {
       id: uuidv4(),
@@ -46,11 +56,13 @@ wss.on('connection', function connection(ws) {
       if (client.readyState == ws.OPEN) {
         console.log("Other Client is ready for message reception!");
         client.send(returnedMessage);
+        client.send(numberOfClients);
+        // Must send the # clients to app.jsx with client.send
       };
-    }); 
-
-  });
+    });
+  }) 
 
   // Set up a callback for when a client closes the socket. This usually means they closed their browser.
-  ws.on('close', () => console.log('Client disconnected'));
-});
+  ws.on('close', () => console.log('Client disconnected. ' + clients.splice(1).length + ' user(s) online'));
+
+})
