@@ -29,6 +29,7 @@ wss.broadcast = function broadcast(data) {
 
 function broadcastClientsCount() {
   const clientsCountMessage = {
+    type: "user_count",
     count: wss.clients.size,
   };
   wss.broadcast(clientsCountMessage);
@@ -42,28 +43,21 @@ wss.on('connection', function connection(ws) {
 
   console.log("\n" + wss.clients.size + " user(s) online");
 
+  broadcastClientsCount();
+
   ws.on('message', function incoming(message) {
     const uuidv4 = require("uuid/v4");
 
     let returnedMessage = JSON.parse(message)
     returnedMessage = {
       id: uuidv4(),
+      type: "NewMessage",
       username: returnedMessage.username,
       content: returnedMessage.content
     };
-    returnedMessage = JSON.stringify(returnedMessage);
+    wss.broadcast(returnedMessage);
     
     console.log("received: ", returnedMessage);
-
-    // Broadcasting to all clients:
-    clients.forEach((client) => {
-      if (client.readyState == ws.OPEN) {
-        console.log("Other Client is ready for message reception!");
-        client.send(returnedMessage);
-        client.send(numberOfClients);
-        // Must send the # clients to app.jsx with client.send
-      };
-    }); 
 
   });
 
