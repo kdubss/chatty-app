@@ -20,22 +20,28 @@ class App extends Component {
     this.socket = new WebSocket("ws://localhost:3001");
 
     this.socket.addEventListener('message', (msg) => {
-      this.setState({messages: this.state.messages.concat(JSON.parse(msg.data))});
+      const messageIncoming = JSON.parse(msg.data);
+      if (messageIncoming.type === "NewMessage") {
+        this.setState({messages: this.state.messages.concat(messageIncoming)});
+      } else if (messageIncoming.type === "user_count") {
+        console.log("New user!");
+      }
     });
   }
 
   newChatMessage(content) {
+    var newMessage;
     if(content.type === "Notification") {
-      var newMessage = {
+      newMessage = {
         content: this.state.currentUser.name +  ' has changed their name to  ' + content.username
-      }
+      };
       this.setState({
         currentUser: {
           name: content.username
         }
       });
     } else if (content.type === "NewMessage") {
-      var newMessage = {
+      newMessage = {
         username: content.username,
         content: content.content
       };
