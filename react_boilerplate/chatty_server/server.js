@@ -5,8 +5,6 @@ const ws = require('ws');
 const express = require('express');
 const SocketServer = require('ws').Server;
 
-const clients = [];
-
 // Set the port to 3001
 const PORT = 3001;
 
@@ -33,11 +31,7 @@ wss.broadcast = function broadcast(data) {
 wss.on('connection', function connection(ws) {
 
   console.log("Client connected!");
-  clients.push(ws);
-  console.log("\nClient ws connected: ", clients);
-  console.log("\nClients array length: ", numberOfClients);
-
-  console.log("\n" + clients.length + " user(s) online");
+  console.log("\n" + wss.clients.size + " user(s) online");
 
   ws.on('message', function incoming(message) {
     const uuidv4 = require("uuid/v4");
