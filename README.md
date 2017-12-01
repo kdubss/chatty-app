@@ -20,6 +20,16 @@
 <hr>
 <h2><a id="#react_reading"><code>React</code> Readings & Assignments</h2>
 <ul>
+  <li><a href="https://web-compass.lighthouselabs.ca/days/w5d5/activities/479">Prototypes in <code>JS</code></a> - w5d5 </li>
+  <li>
+    <ul>
+      <li><a href="https://gist.github.com/davidvandusen/f1d5e53b654303325cb4d1c38914eb99">Notes for Morning Lecture (w5d5)</a></li>
+      <li><a href="https://web-compass.lighthouselabs.ca/days/w5d5/activities/390"><code>JavaScript</code> Prototypes</a></li>
+      <li><a href="https://web-compass.lighthouselabs.ca/days/w5d5/activities/391"><code>JavaScript</code> Prototypes...Pt.II</a></li>
+      <li><a href="https://web-compass.lighthouselabs.ca/days/w5d5/activities/392"><code>JavaScript</code> Prototypes...Practice</a></li>
+      <li><a href="https://web-compass.lighthouselabs.ca/days/w5d5/activities/393">ES6 Classes</a></li>
+    </ul>
+  </li>
   <li><a href="https://web-compass.lighthouselabs.ca/days/w5d4/activities/379">Displaying Users Online (Assignment 2 - w5d4)</a></li>
   <li><a href="https://web-compass.lighthouselabs.ca/days/w5d4/activities/378">Notifications (Assignment 1 - w5d4)</a></li>
   <li><a href="https://web-compass.lighthouselabs.ca/days/w5d3/activities/373">Creating a <code>websocket</code> server</a>
