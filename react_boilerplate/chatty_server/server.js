@@ -5,6 +5,8 @@ const ws = require('ws');
 const express = require('express');
 const SocketServer = require('ws').Server;
 
+const clients = [];
+
 // Set the port to 3001
 const PORT = 3001;
 
@@ -17,32 +19,25 @@ const server = express()
 // Create the WebSockets server
 const wss = new SocketServer({ server })// www.clients.size;
 
-let numberOfClients = wss.clients.size + ' user(s) online';
-
-// Broadcast to all:
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
-    if (client.readyState === WebSocket.OPEN) {
+    if (client.readyState === ws.OPEN) {
       client.send(JSON.stringify(data));
     }
   });
 };
 
-function broadcastClientsCount() {
-  // TODO: Tell all connected sockets in Chatty the number of active sockets.
-  const clientsCountMessage = {
-    count: wss.clients.size
-  };
-  wss.broadcast(clientsCountMessage);
-}
-
 wss.on('connection', function connection(ws) {
 
+  let numberOfClients = wss.clients.size + ' user(s) online';
   console.log("Client connected!");
+  clients.push(ws);
+
   console.log("\n" + wss.clients.size + " user(s) online");
 
   ws.on('message', function incoming(message) {
     const uuidv4 = require("uuid/v4");
+
     let returnedMessage = JSON.parse(message)
     returnedMessage = {
       id: uuidv4(),
@@ -61,8 +56,9 @@ wss.on('connection', function connection(ws) {
         client.send(numberOfClients);
         // Must send the # clients to app.jsx with client.send
       };
-    });
-  }) 
+    }); 
+
+  });
 
   // Set up a callback for when a client closes the socket. This usually means they closed their browser.
   ws.on('close', () => console.log('Client disconnected. ' + wss.clients.size + ' user(s) online'));
