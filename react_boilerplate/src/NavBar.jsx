@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 class NavBar extends Component {
   render() {
+    var clientCount = this.props.clientCount;
     return (
-      <navbar className='navbar'>
+      <nav className='navbar'>
         <a href='/' className='navbar-brand'>Chatty</a>
-      </navbar>
+        <h2 className="clientCount">{clientCount} <em>user(s) online</em></h2>
+      </nav>
     )
   }
 }
