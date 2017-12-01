@@ -27,6 +27,13 @@ wss.broadcast = function broadcast(data) {
   });
 };
 
+function broadcastClientsCount() {
+  const clientsCountMessage = {
+    count: wss.clients.size,
+  };
+  wss.broadcast(clientsCountMessage);
+}
+
 wss.on('connection', function connection(ws) {
 
   let numberOfClients = wss.clients.size + ' user(s) online';
