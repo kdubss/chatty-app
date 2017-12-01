@@ -28,6 +28,14 @@ wss.broadcast = function broadcast(data) {
   });
 };
 
+function broadcastClientsCount() {
+  // TODO: Tell all connected sockets in Chatty the number of active sockets.
+  const clientsCountMessage = {
+    count: wss.clients.size
+  };
+  wss.broadcast(clientsCountMessage);
+}
+
 wss.on('connection', function connection(ws) {
 
   console.log("Client connected!");
