@@ -17,7 +17,7 @@ class App extends Component {
     this.newChatMessage = this.newChatMessage.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.socket = new WebSocket("ws://localhost:3001");
 
     this.socket.addEventListener('message', (msg) => {
@@ -36,6 +36,7 @@ class App extends Component {
 
   newChatMessage(content) {
     var newMessage;
+    // TODO: style the notification differently than the rest of the chat messages!
     if(content.type === "Notification") {
       newMessage = {
         content: this.state.currentUser.name +  ' has changed their name to  ' + content.username
