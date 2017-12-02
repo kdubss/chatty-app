@@ -6,12 +6,98 @@
 <hr>
 <h2>Description</h2>
 <p>
-  Your application will be comprised of 3 child 'components' (<code>Message</code>, <code>MessageList</code>, <code>ChatBar</code>, and <code>NavBar</code>), which interact together through one main App component.
+  <code>Chatty</code> is a real-time chat application similar to Slack.
+  This app utilizes the following <code>JavaScript</code> libraries,
+  <ul>
+    <li><code>React</code></li>
+    <li><a href="https://babeljs.io/">Babel</a></li>
+    <li><a href="https://webpack.js.org/">Webpack</a></li>
+  </ul>
+</p>
+<p>
+  <code>Chatty</code> is comprised of 3 child 'components' (<code>Message</code>, <code>MessageList</code>, <code>ChatBar</code>, and <code>NavBar</code>), which interact together through one main App component.
 
   When a user creates a new message it will be sent to a simple server that broadcasts the message to all other connected users.
 
   Instead of AJAX (over HTTP), the Chatty application will implement the client-server communication using an alternative protocol called WebSocket.
 </p>
+<hr>
+<h2>Functional Requirements</h2>
+<ul>
+  <li>Primarily a client-side SPA (single-page app) built with ReactJS,
+  <ul>
+    <li>Based on the HTML and CSS provided</li>
+    <li>Contains a chat log displaying messages and notifications</li>
+    <li>Contains an input field to change your name and an input field to send a message</li>
+  </ul>
+  </li>
+  <li>The client-side app communicates with a server via WebSockets for multi-user real-time updates</li>
+  <li>No persistent database is involved; the focus is on the client-side experience</li>
+</ul>
+<br>
+<h2>Behaviour Requirements</h2>
+<ul>
+  <li>When any connected user sends a chat message, all connected users receive and display the message</li>
+  <li>When any connected user changes their name, all connected users are notified of the name change,
+  <ul>
+    <li>Notifications are styled differently from chat messages</li>
+  </ul>
+  </li>
+  <li>Header will display the count of connected users</li>
+  <li>When the number of connected users changes, this count will be updated for all connected users</li>
+  <li>(<b>STRETCH</b>) Different users' names will each be coloured differently
+  <ul>
+    <li>Bonus: the colouring is consistent between connected user instances or is calculated algorithmically based on their name, or is manually selectable by users, or any other interesting approach!</li>
+  </ul>
+  </li>
+</ul>
+<br>
+<h2>Technical Specifications</h2>
+<ul>
+  <li><b>Stack:</b>
+  <ul>
+    <li>Webpack with Babel, JSX, ES6, webpack dev server (comes with boilerplate)</li>
+    <li>WebSockets using Node package ws on the server-side, and native WebSocket on client side
+    ReactJS</li>
+  </ul>
+  </li>
+  <br>
+  <li><b>React component guidelines:</b>
+  <ul>
+    <li>A single root component (e.g. App) should be responsible for the main application state, as well as communication with the WebSocket server
+    <ul>
+      <li>A message list component renders the chat log (chat messages and system notifications)</li>
+      <li>A chat bar component provides an input field for changing your username and an input field for sending messages. These input fields do not need to be React-style "controlled inputs", although they can be.</li>
+    </ul>
+    </li>
+  </ul>
+  <br>
+  <li><b>Client websocket behaviour:</b>
+  <ul>
+    <li>opens a websocket connection as soon as the App component is mounted</li>
+    <li>the connection stays open until the client closes the page (or otherwise disconnects)
+    sends chat messages and (name change) notifications initiated by the current user
+    handles broadcast messages (chat, notifications, user count) from the server and may alter state accordingly</li>
+  </ul>
+  <br>
+  <li><b>Websoccket server specs:
+  <ul>
+    <li>The Chatty client app and Chatty websocket server are separate Node apps each with their own package.json</li>
+    <li>It's a simple server using express and <code>ws</code></li>
+    <li>The server should send and receive JSON-encoded messages</li>
+    <li>When a client sends a message:
+    <ul>
+      <li>the server should determine what to do based on the message's type property</li>
+      <li>it should construct a message to send back in response with a corresponding type and a generated unique id (e.g. a UUID)</li>
+      <li>When a client connects or disconnects, the server should broadcast the current user count to all connected clients</li>
+      <li>(<b>STRETCH</b>) the server may assign and/or keep track of user colours (there are several ways of solving this)</li>
+    </ul>
+  </ul>
+</ul>
+
+
+
+
 <hr>
 <h5><i><code>Chatty App</code></i> finished product 
 (what it should look like)</h5>
