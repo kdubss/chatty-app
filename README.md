@@ -6,17 +6,31 @@
 <hr>
 <h2>Description</h2>
 <p>
-  Your application will be comprised of 3 child 'components' (<code>Message</code>, <code>MessageList</code>, 
-  and <code>ChatBar</code>), which interact together through one main App component.
+  Your application will be comprised of 3 child 'components' (<code>Message</code>, <code>MessageList</code>, <code>ChatBar</code>, and <code>NavBar</code>), which interact together through one main App component.
 
   When a user creates a new message it will be sent to a simple server that broadcasts the message to all other connected users.
 
-  Instead of AJAX (over HTTP), your Chatty application will implement the client-server communication using an alternative protocol called WebSocket.
+  Instead of AJAX (over HTTP), the Chatty application will implement the client-server communication using an alternative protocol called WebSocket.
 </p>
 <hr>
 <h5><i><code>Chatty App</code></i> finished product 
 (what it should look like)</h5>
 <img src='https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-app-01-final.png'>
+<br>
+(Messages typed by one user will be broadcast to all users currently connected with <code>Chatty</code>)
+<img src="https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-multiple-clients.png">
+<br>
+(Multiple users can interact with each other in the same chat space)
+<img src="https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-multiple-clients2.png">
+<br>
+(Users have the ability to change their chat pseudo-name if they choose to)
+<img src="https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-multiple-clients3.png">
+<img src="https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-multiple-clients4.png">
+<br>
+(Current number of users connected with <code>Chatty</code> is displayed in the top right of the nav-bar.  New users connecting with <code>Chatty</code> will not be able to see the past chat history, which are still accessible to already connected users.)
+<img src="https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-multiple-clients5.png">
+<br>
+
 <hr>
 <h2><a id="#react_reading"><code>React</code> Readings & Assignments</h2>
 <ul>
