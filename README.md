@@ -1,10 +1,15 @@
 <h1>Week 5: Chatty App</h1>
 <h4><a id='#toc'>ToC</h4>
 <ul>
+  <li><a href="#description"><code>App</code> Description</a></li>
+  <li><a href="#functionalreq">Functional requirements</a></li>
+  <li><a href="#behaviourreq">Behaviour requirements</a></li>
+  <li><a href="#technicalreq">Technical requirements</a></li>
+  <li><a href="#finishedproduct">Finished product</a></li>
   <li><a href="#react_reading"<code>React readings</code></a></li>
 </ul>
 <hr>
-<h2>Description</h2>
+<h2><a id="#description">Description</a></h2>
 <p>
   <code>Chatty</code> is a real-time chat application similar to Slack.
   This app utilizes the following <code>JavaScript</code> libraries,
@@ -22,7 +27,7 @@
   Instead of AJAX (over HTTP), the Chatty application will implement the client-server communication using an alternative protocol called WebSocket.
 </p>
 <hr>
-<h2>Functional Requirements</h2>
+<h2><a id="#functionalreq">Functional Requirements</a></h2>
 <ul>
   <li>Primarily a client-side SPA (single-page app) built with ReactJS,
   <ul>
@@ -35,7 +40,7 @@
   <li>No persistent database is involved; the focus is on the client-side experience</li>
 </ul>
 <br>
-<h2>Behaviour Requirements</h2>
+<h2><a id="#behaviourreq">Behaviour Requirements</a></h2>
 <ul>
   <li>When any connected user sends a chat message, all connected users receive and display the message</li>
   <li>When any connected user changes their name, all connected users are notified of the name change,
@@ -52,7 +57,7 @@
   </li>
 </ul>
 <br>
-<h2>Technical Specifications</h2>
+<h2><a id="#technicalreq">Technical Specifications</a></h2>
 <ul>
   <li><b>Stack:</b>
   <ul>
@@ -80,7 +85,7 @@
     handles broadcast messages (chat, notifications, user count) from the server and may alter state accordingly</li>
   </ul>
   <br>
-  <li><b>Websoccket server specs:
+  <li><b>Websocket server specs:</b>
   <ul>
     <li>The Chatty client app and Chatty websocket server are separate Node apps each with their own package.json</li>
     <li>It's a simple server using express and <code>ws</code></li>
@@ -99,8 +104,8 @@
 
 
 <hr>
-<h5><i><code>Chatty App</code></i> finished product 
-(what it should look like)</h5>
+<h5><a id="#finishedproduct"><i><code>Chatty App</code></i> finished product 
+(what it should look like)</a></h5>
 <img src='https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-app-01-final.png'>
 <br>
 (Messages typed by one user will be broadcast to all users currently connected with <code>Chatty</code>)
