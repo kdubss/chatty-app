@@ -8,6 +8,7 @@
   <li><a href="#finishedproduct">Finished product</a></li>
   <li><a href="#react_reading"<code>React readings</code></a></li>
 </ul>
+(<a href="#toc">Back to top &#x21EA;</a>)
 <hr>
 <h2><a id="#description">Description</a></h2>
 <p>
@@ -26,6 +27,7 @@
 
   Instead of AJAX (over HTTP), the Chatty application will implement the client-server communication using an alternative protocol called WebSocket.
 </p>
+(<a href="#toc">Back to top &#x21EA;</a>)
 <hr>
 <h2><a id="#functionalreq">Functional Requirements</a></h2>
 <ul>
@@ -40,6 +42,8 @@
   <li>No persistent database is involved; the focus is on the client-side experience</li>
 </ul>
 <br>
+
+(<a href="#toc">Back to top &#x21EA;</a>)
 <h2><a id="#behaviourreq">Behaviour Requirements</a></h2>
 <ul>
   <li>When any connected user sends a chat message, all connected users receive and display the message</li>
@@ -57,6 +61,8 @@
   </li>
 </ul>
 <br>
+(<a href="#toc">Back to top &#x21EA;</a>)
+
 <h2><a id="#technicalreq">Technical Specifications</a></h2>
 <ul>
   <li><b>Stack:</b>
@@ -99,13 +105,14 @@
     </ul>
   </ul>
 </ul>
+(<a href="#toc">Back to top &#x21EA;</a>)
 
 
 
 
 <hr>
-<h5><a id="#finishedproduct"><i><code>Chatty App</code></i> finished product 
-(what it should look like)</a></h5>
+<h2><a id="#finishedproduct"><i><code>Chatty App</code></i> finished product 
+(what it should look like)</a></h2>
 <img src='https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-app-01-final.png'>
 <br>
 (Messages typed by one user will be broadcast to all users currently connected with <code>Chatty</code>)
@@ -121,6 +128,8 @@
 (Current number of users connected with <code>Chatty</code> is displayed in the top right of the nav-bar.  New users connecting with <code>Chatty</code> will not be able to see the past chat history, which are still accessible to already connected users.)
 <img src="https://github.com/kdubss/chatty-app/blob/master/imgs/chatty-multiple-clients5.png">
 <br>
+(<a href="#toc">Back to top &#x21EA;</a>)
+
 
 <hr>
 <h2><a id="#react_reading"><code>React</code> Readings & Assignments</h2>
@@ -154,3 +163,4 @@
   <li><a href="https://github.com/jensen/react-notes">Class lecture notes (W5d2)</a></li>
   <li><a href="https://www.npmjs.com/package/react-dom">Components</a></li>
 </ul>
+(<a href="#toc">Back to top &#x21EA;</a>)
