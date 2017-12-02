@@ -8,7 +8,6 @@
   <li><a href="#finishedproduct">Finished product</a></li>
   <li><a href="#react_reading"<code>React readings</code></a></li>
 </ul>
-(<a href="#toc">Back to top &#x21EA;</a>)
 <hr>
 <h2><a id="#description">Description</a></h2>
 <p>
@@ -132,7 +131,7 @@
 
 
 <hr>
-<h2><a id="#react_reading"><code>React</code> Readings & Assignments</h2>
+<h2><a id="#react_reading"><code>React</code> Readings & Assignments</a></h2>
 <ul>
   <li><a href="https://web-compass.lighthouselabs.ca/days/w5d5/activities/479">Prototypes in <code>JS</code></a> - w5d5 </li>
   <li>
