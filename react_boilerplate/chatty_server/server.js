@@ -1,6 +1,4 @@
 // server.js
-// TODO: style the notification differently than the rest of the chat messages!
-//    - on Client side!
 
 const ws = require('ws');
 
