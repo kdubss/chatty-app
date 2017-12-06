@@ -48,13 +48,17 @@ wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
     const uuidv4 = require("uuid/v4");
 
-    let returnedMessage = JSON.parse(message)
-    returnedMessage = {
-      id: uuidv4(),
-      type: "NewMessage",
-      username: returnedMessage.username,
-      content: returnedMessage.content
-    };
+    let returnedMessage = JSON.parse(message);
+    if(returnedMessage.type === 'Notification'){
+      returnedMessage.id = uuidv4();
+    } else {
+      returnedMessage = {
+        id: uuidv4(),
+        type: "NewMessage",
+        username: returnedMessage.username,
+        content: returnedMessage.content
+      };   
+    }
     wss.broadcast(returnedMessage);
 
   });
