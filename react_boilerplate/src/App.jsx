@@ -22,7 +22,8 @@ class App extends Component {
 
     this.socket.addEventListener('message', (msg) => {
       const messageIncoming = JSON.parse(msg.data);
-      if (messageIncoming.type === "NewMessage") {
+      console.log(messageIncoming);
+      if (messageIncoming.type === "NewMessage" || messageIncoming.type == "Notification") {
         this.setState({messages: this.state.messages.concat(messageIncoming)});
       } else if (messageIncoming.type === "user_count") {
         // console.log("user(s) online!");
@@ -39,11 +40,12 @@ class App extends Component {
     // TODO: style the notification differently than the rest of the chat messages!
     if(content.type === "Notification") {
       newMessage = {
-        content: this.state.currentUser.name +  ' has changed their name to  ' + content.username
+        content: this.state.currentUser.name +  ' has changed their name to  ' + content.username,
+        type: 'Notification'
       };
       this.setState({
         currentUser: {
-          name: content.username
+          name: content.username,
         }
       });
     } else if (content.type === "NewMessage") {
